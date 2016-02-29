@@ -3,10 +3,14 @@ package com.training.domains;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.TreeSet;
+import org.apache.log4j.*;
 
+@SuppressWarnings("unused")
 public class Application {
 
 	public static void main(String[] args) {
+		Logger log = Logger.getLogger("Logger Trial");
+		BasicConfigurator.configure();
 		Doctor doc1 = new Doctor(1001, "Shariq", "ENT");
 		Doctor doc2 = new Doctor(1002, "Rasik", "Women");
 		Doctor doc3 = new Doctor(1003, "Vaibhav", "Physican");
@@ -19,7 +23,9 @@ public class Application {
 		nur.addDoctor(doc3);
 		nur.addDoctor(doc4);
 		nur.printDoctorList();
-
+		
+		log.info("Doctors added");
+		
 		Patient pat1 = new Patient(101, "Suri", 29);
 		Patient pat2 = new Patient(102, "Puri", 21);
 		Patient pat3 = new Patient(103, "Gauri", 23);
@@ -33,7 +39,9 @@ public class Application {
 		patients.add(pat3);
 		// patients.add(pat4);
 		doc1.setPatients(patients);
-
+		
+		log.info("Patients Added");
+		
 		System.out.println("Choose sort type 1.Name 2. Specialization :");
 
 		Scanner sc = new Scanner(System.in);
